@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Declaración de amor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bfcde6;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .declaration, .thank-you, .final-page {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            display: none;
+            max-width: 600px;
+            width: 100%;
+        }
+        .declaration {
+            display: block;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #yes-button {
+            background-color: #8192C7;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        #no-button {
+            background-color: #f44336;
+            color: white;
+        }
+        #gif-container {
+            margin-top: 20px;
+        }
+        #gif-container img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="declaration">
+        <h1>Para la niña de mis ojos, Ale </h1>
+        <p>Hoy, el día miércoles, 17 de julio del 2024
+        pido ser tuyo, te entrego mi corazón, te entrego todo mi ser. Haces que mi corazón lata tan fuerte que a veces siento que de mi pecho de saldrá, en el estás, tu nombre marcado está, mi corazón te ama. 
+        
+        ¿Puedo ser tu novio? ¿Puedo por favor quedarme a tu lado? Sólo te amo, te necesito tanto, ya no quiero ser sólo tu amigo, no puedo aguantar.</p>
+        <p>💗</p>
+        <div class="buttons">
+            <button id="yes-button">Sí</button>
+            <button id="no-button">No</button>
+        </div>
+        <div id="gif-container">
+
+        </div>
+        <div id="response-container" style="display: none;">
+            <p></p>
+        </div>
+    </div>
+
+    <div class="thank-you">
+        <h1>¡ME GUSTAS!</h1>
+        <p>Para la niña más bonita en mi vida, Ale. 
+                
+                Todo este tiempo sin buscarte fue un error, no sé cómo pude cometer ese pecado. Era un infierno no estar a tu lado, no poder verte, escucharte, sólo desear tenerte. Hoy volví a ser tuyo, hoy volviste a ser mía, hoy volvimos a ser ese ser junto, con un corazón latiente y lleno de amor.
+                
+                Podría sonar dramático, odio ser cursi, pero tú te mereces todo bueno, para mí tú eres lo que siempre soñé, contigo siento mariposas, soy como un perrito a tus pies, y eso no me molesta, me encanta.
+                
+                Amo que nos hayamos encontrado, ahora déjame cuidar de tu alma, de tu corazón y de todo tu ser. Eres mi estrella, la única que mis ojos pueden ver, la única que en mis manos anhelo tener, la única que me hace fluir, eres una de mis razones para vivir. Te amo, mi estrellita hermosa. 💗
+                
+                Atte; Dalthon, tu luna</p>
+
+        <button id="love-button">Te amo</button>
+    </div>
+
+    <div class="final-page">
+        <h1>Mi estrellita </h1>
+        <p>Prometo ser mucho mejor que antes, prometo dar mi mejor versión, amarte cada noche sin ninguna intromisión. En la vida he conocido mujer como tú, eres la única persona que me puede tener comiendo de su mano, y es todo un placer ser ese, es todo un placer ser sólo tuyo, mi alma desea contigo florecer, solo contigo.
+        
+        Te amo, te amo demasiado, te adoro con mi vida.
+        Te dedico; Hasta la piel - Carla Morrison
+        Eres tú - Carla Morrison
+        Moonlight - Twice 
+        
+        💗</p>
+        
+    </div>
+
+    <script>
+        let yesButtonSize = 16; // Tamaño de fuente inicial del botón "Sí"
+        let noButtonClicks = 0; // Contador para los clics en el botón "No"
+        const noResponses = [
+            '¿Estás segura?',
+            '¿Estás muy muy segura?',
+            '¿Estás muy muy muy segura?'
+        ];
+
+        document.getElementById('no-button').addEventListener('click', function() {
+            yesButtonSize += 8; // Incrementar tamaño en cada clic
+            var yesButton = document.getElementById('yes-button');
+            yesButton.style.fontSize = yesButtonSize + 'px';
+            yesButton.style.padding = (yesButtonSize / 2) + 'px ' + (yesButtonSize * 1.25) + 'px';
+
+            // Mostrar la respuesta correspondiente del array
+            if (noButtonClicks < noResponses.length) {
+                document.getElementById('response-container').style.display = 'block';
+                document.getElementById('response-container').innerHTML = `<p></p>`;
+                noButtonClicks++;
+            }
+        });
+
+        document.getElementById('yes-button').addEventListener('click', function() {
+            document.querySelector('.declaration').style.display = 'none';
+            document.querySelector('.thank-you').style.display = 'block';
+        });
+
+        document.getElementById('love-button').addEventListener('click', function() {
+            document.querySelector('.thank-you').style.display = 'none';
+            document.querySelector('.final-page').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
